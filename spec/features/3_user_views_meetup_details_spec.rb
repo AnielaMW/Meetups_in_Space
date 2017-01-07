@@ -14,13 +14,13 @@ feature "user views details of a meetup" do
       name: "Tap Dance Recital",
       description: "Tango Cafe's annual Tap Dance Recital will be (date), (time), (tickets).",
       location: "Tango Cafe",
-      user_id: 1
+      creator: "me"
       })
     theatre = Meetup.create!({
       name: "RBTO Amature Auditions",
       description: 'Rochester Broadway Theatre Organization is holding auditions for the spring show, "Rent".',
       location: "Auditorium Theatre",
-      user_id: 2
+      creator: "you"
       })
 
     visit "/meetups"
