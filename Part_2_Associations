@@ -1,11 +1,10 @@
-_ - Create AR models each table
-    _ - Meetup
-    _ - Attendee
+X - Create AR models each table
+    X - Meetup
 _ - Create AR associations
+    X - Attendees: Many Users to Many Meetups
+        X - 1 User to 1 Attendee
+        X - 1 Meetup to 1 Attendee
     _ - Creator: 1 User to Many Meetups
-    _ - Attendees: Many Users to Many Meetups
-        _ - 1 User to 1 Attendee
-        _ - 1 Meetup to 1 Attendee
     _ - Refactor as needed
         * update via migrations
         * update ER diagram
