@@ -1,0 +1,77 @@
+_ - Create AR models each table
+    _ - Meetup
+    _ - Attendee
+_ - Create AR associations
+    _ - Creator: 1 User to Many Meetups
+    _ - Attendees: Many Users to Many Meetups
+        _ - 1 User to 1 Attendee
+        _ - 1 Meetup to 1 Attendee
+    _ - Refactor as needed
+        * update via migrations
+        * update ER diagram
+_ - Create Pending Acceptance Test for the User Stories
+    * Using rspec
+    As a user...
+    _ - I want to view a list of all available meetups
+    _ - I want to view the details of a meetup
+    _ - I want to create a meetup
+    _ - I want to see who has already joined a meetup
+    _ - I want to join a meetup
+    -------------OPTIONAL------------- to be created later
+    As a meetup creator...
+    _ - I want to change my meetup's details
+    _ - I want to cancel my meetup
+    _ - I want to leave a meetup
+    As a user...
+    _ - I want to join a meetup without a page reload
+    _ - I want to leave a meetup without a page reload
+    _ - I want to see comments about a meetup
+    As a meetup member...
+    _ - I want to leave comments on a meetup
+    As a comment creator...
+    _ - I want to erase a comment
+_ - Write Full Acceptance Test for the User Stories
+    * Using rspec
+    As a user...
+    _ - I want to view a list of all available meetups
+    _ - I want to view the details of a meetup
+    _ - I want to create a meetup
+    _ - I want to see who has already joined a meetup
+    _ - I want to join a meetup
+  -------------OPTIONAL------------- to be created later
+    As a meetup creator...
+    _ - I want to change my meetup's details
+    _ - I want to cancel my meetup
+    _ - I want to leave a meetup
+    As a user...
+    _ - I want to join a meetup without a page reload
+    _ - I want to leave a meetup without a page reload
+    _ - I want to see comments about a meetup
+    As a meetup member...
+    _ - I want to leave comments on a meetup
+    As a comment creator...
+    _ - I want to erase a comment
+_ - Review and Refactor Acceptance Tests
+_ - Write code to pass tests
+    * app.rb AR query
+    * app/views/ to create user sites
+    As a user...
+    _ - I want to view a list of all available meetups
+    _ - I want to view the details of a meetup
+    _ - I want to create a meetup
+    _ - I want to see who has already joined a meetup
+    _ - I want to join a meetup
+  -------------OPTIONAL------------- to be created later
+    As a meetup creator...
+    _ - I want to change my meetup's details
+    _ - I want to cancel my meetup
+    _ - I want to leave a meetup
+    As a user...
+    _ - I want to join a meetup without a page reload
+    _ - I want to leave a meetup without a page reload
+    _ - I want to see comments about a meetup
+    As a meetup member...
+    _ - I want to leave comments on a meetup
+    As a comment creator...
+    _ - I want to erase a comment
+_ - Review and refactor Code as needed
