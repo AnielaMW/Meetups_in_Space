@@ -64,8 +64,8 @@ X - Prepare Schema
       * meetup_id(umc)
       * user_id(umc)
   X - draw ER diagram
-_ - Create Migrations to the database
-  _ - create migration
-  _ - write migration
-  _ - migrate - rollback - migrate
+X - Create Migrations to the database
+  X - create migration
+  X - write migration
+  X - migrate - rollback - migrate
 _ - Review work and refactor as needed
