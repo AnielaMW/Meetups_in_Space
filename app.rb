@@ -33,5 +33,10 @@ get '/sign_out' do
 end
 
 get '/meetups' do
+  @meetups = Meetup.all
   erb :'meetups/index'
+end
+
+get '/meetups/:id' do
+  
 end
