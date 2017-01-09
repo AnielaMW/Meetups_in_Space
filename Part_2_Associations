@@ -1,11 +1,11 @@
 X - Create AR models each table
     X - Meetup
-_ - Create AR associations
+X - Create AR associations
     X - Attendees: Many Users to Many Meetups
         X - 1 User to 1 Attendee
         X - 1 Meetup to 1 Attendee
-    _ - Creator: 1 User to Many Meetups
-    _ - Refactor as needed
+    X - Creator: 1 User to Many Meetups
+    X - Refactor as needed
         * update via migrations
         * update ER diagram
 X - Create Pending Acceptance Test for the User Stories
