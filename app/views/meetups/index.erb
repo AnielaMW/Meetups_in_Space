@@ -3,7 +3,9 @@
 <div id="meetuplist">
   <ul>
     <% @meetups.each do |meetup| %>
-      <li> <%= meetup.name %> </li>
+      <li><a href="/meetups/<%= meetup.id %>"><%= meetup.name %></a></li>
     <% end %>
   </ul>
 </div>
+
+<a href="/meetups/create_new">Create New Meetup</a>
