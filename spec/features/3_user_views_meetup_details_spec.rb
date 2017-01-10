@@ -9,19 +9,9 @@ feature "user views details of a meetup" do
   # * On the index page, the name of each meetup should be a link to the meetup's show page.
   # * On the show page, I should see the name, description,  location, and the creator of the meetup.
 
-  pending "successfully view details of a meetup" do
-    tap_dance = Meetup.create!({
-      name: "Tap Dance Recital",
-      description: "Tango Cafe's annual Tap Dance Recital will be (date), (time), (tickets).",
-      location: "Tango Cafe",
-      creator: "me"
-      })
-    theatre = Meetup.create!({
-      name: "RBTO Amature Auditions",
-      description: 'Rochester Broadway Theatre Organization is holding auditions for the spring show, "Rent".',
-      location: "Auditorium Theatre",
-      creator: "you"
-      })
+  scenario "successfully view details of a meetup" do
+    FactoryGirl.create(:meetup)
+    FactoryGirl.create(:meetup1)
 
     visit "/meetups"
     click_link "Tap Dance Recital"

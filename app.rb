@@ -38,5 +38,7 @@ get '/meetups' do
 end
 
 get '/meetups/:id' do
-
+  id = params[:id]
+  @meetup = Meetup.find(id)
+  erb :'meetups/show'
 end
