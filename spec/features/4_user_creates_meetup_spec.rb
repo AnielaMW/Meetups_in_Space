@@ -11,19 +11,22 @@ feature "user creates a meetup" do
   # * If the form submission is successful, I should be brought to the meetup's show page, and I should see a message that lets me know that I have created a meetup successfully.
   # * If the form submission is unsuccessful, I should remain on the meetups new page, and I should see error messages explaining why the form submission was unsuccessful. The form should be pre-filled with the values that were provided when the form was submitted.
 
-  pending "successfully create a meetup" do
-    visit "/meetups"
-    click_link "Create new Meetup"
+  scenario "successfully create a meetup" do
+    user = FactoryGirl.create(:user)
 
-    fill_in "Name", with: "Mac's Tavern Darts Tourny"
-    fill_in "Description", with: "Mac's Tavern weekly Darts tournement, (day), (time). Half price drinks until 6pm."
-    fill_in "Location", with: "Mac's Tavern"
+    visit "/meetups"
+    sign_in_as user
+    click_link "Create New Meetup"
+
+    fill_in "Name", :with => "Mac's Tavern Darts Tourny"
+    fill_in "Description", :with => "Mac's Tavern weekly Darts tournement, (day), (time). Half price drinks until 6pm."
+    fill_in "Location", :with => "Mac's Tavern"
     click_on 'Create Meetup'
 
     expect(page).to be("/meetups")
     expect(page).to have_content("Mac's Tavern Darts Tourny")
   end
-  
+
   pending "fail to create meetup if not signed in"
   pending "fail to create meetup if invalid information"
 end
