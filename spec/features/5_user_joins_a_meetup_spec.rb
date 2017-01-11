@@ -17,20 +17,20 @@ feature "user joins a meetup" do
 
     visit "/meetups"
     click_link "Tap Dance Recital"
-    click_link "Join Meetup"
+    click_on "Join Meetup"
 
-    expect(page).to have_content("Tap Dance Recital")
+    # expect(@attendee).to be_an('object')
     expect(page).to have_content("You have joined this Meetup.")
   end
 
-  pending "fail to join meetup if not signed in" do
+  scenario "fail to join meetup if not signed in" do
     FactoryGirl.create(:meetup)
     FactoryGirl.create(:meetup1)
 
     visit "/meetups"
     click_link "Tap Dance Recital"
-    click_link "Join Meetup"
+    click_on "Join Meetup"
 
-    expect(page).to have_content("You need to sign-in to join a new Meetup.")
+    expect(page).to have_content("You need to sign-in to join this Meetup.")
   end
 end
