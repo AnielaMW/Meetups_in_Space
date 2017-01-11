@@ -38,15 +38,21 @@ get '/meetups' do
 end
 
 get '/meetups/create_new' do
-  @user_id = params[id]
-  # How do I enter the user's id as the user_id for the creator of a new meetup
-  @new_meetup = Meetup.new
-  @errors = @new_meetup.errors.full_messages
-  erb :'meetups/create'
+  if current_user
+    @new_meetup = Meetup.new({name: params[:name], location: params[:location], description: params[:description], user_id: current_user.id})
+    @user_id = current_user.id
+    @errors = @new_meetup.errors.full_messages
+    erb :'meetups/create'
+  else
+    flash[:notice] = "You need to sign-in to create a new Meetup."
+    redirect '/'
+  end
 end
 
 post '/meetups/create_new' do
-  @new_meetup = Meetup.new(params)
+  @new_meetup = Meetup.new(name: params[:name], location: params[:location], description: params[:description], user_id: current_user.id)
+  @errors = @new_meetup.errors.full_messages
+  @user_id = current_user.id
 
   if @new_meetup.save
     redirect '/meetups'
