@@ -17,10 +17,12 @@
   </div>
 
   <div>
-    <input type="text" id="user_id" name="user_id" value="<%= @user_id %>">
-  </div>
-
-  <div>
     <input type="submit" value="Create Meetup">
   </div>
 </form>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
