@@ -62,6 +62,23 @@ post '/meetups/create_new' do
   end
 end
 
+post '/meetups/:id/join' do
+  if current_user
+    @user_id = :current_user.id
+    @meetup_id = params[:id]
+
+    @attendee = Attendee.new(user_id: @user_id, meetup_id: @meetup_id)
+
+    @attendee.save
+
+    flash[:notice] = "You have joined this Meetup."
+    redirect '/meetups/@meetup_id'
+  else
+    flash[:notice] = "You need to sign-in to join this Meetup."
+    redirect '/'
+  end
+end
+
 get '/meetups/:id' do
   id = params[:id]
   @meetup = Meetup.find(id)

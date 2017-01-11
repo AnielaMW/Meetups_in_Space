@@ -10,6 +10,27 @@ feature "user joins a meetup" do
   # * If I am signed in and I click the button, I should see a message that says that I have joined the meetup and I should be added to the meetup's members list.
   # * If I am not signed in and I click the button, I should see a message which says that I must sign in.
 
-  pending "successfully join a meetup"
-  pending "fail to join meetup if not signed in"
+  scenario "successfully join a meetup" do
+    user = FactoryGirl.create(:user)
+    FactoryGirl.create(:meetup)
+    FactoryGirl.create(:meetup1)
+
+    visit "/meetups"
+    click_link "Tap Dance Recital"
+    click_on "Join Meetup"
+
+    # expect(@attendee).to be_an('object')
+    expect(page).to have_content("You have joined this Meetup.")
+  end
+
+  scenario "fail to join meetup if not signed in" do
+    FactoryGirl.create(:meetup)
+    FactoryGirl.create(:meetup1)
+
+    visit "/meetups"
+    click_link "Tap Dance Recital"
+    click_on "Join Meetup"
+
+    expect(page).to have_content("You need to sign-in to join this Meetup.")
+  end
 end
