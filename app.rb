@@ -57,6 +57,7 @@ post '/meetups/create_new' do
 
   if @new_meetup.save
     redirect '/meetups'
+    # how do I call params[:id] to redirect the user to the meetup show page once a meetup has been created.
   else
     @errors = @new_meetup.errors.full_messages
     erb :'meetups/create'

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature "user joins a meetup" do
+feature "User joins a meetup" do
   # As a user
   # I want to join a meetup
   # So that I can partake in this meetup
@@ -20,7 +20,7 @@ feature "user joins a meetup" do
     click_on "Join Meetup"
 
     # need to rewrite to test to be directed to the meetup show page to see username add to list along with the message that I have been added to the list.
-
+    expect(page).to have_current_path("/meetups/#{meetup.id}")
     expect(page).to have_content("You have joined the Meetup.")
   end
 
@@ -34,5 +34,5 @@ feature "user joins a meetup" do
     expect(page).to have_content("You need to sign-in to join this Meetup.")
   end
 
-  pending "fail to see join button if signed in and already and attendee."
+  pending "fail to see join button if signed in and already an attendee."
 end

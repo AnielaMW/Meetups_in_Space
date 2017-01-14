@@ -34,7 +34,7 @@ _ - Write Full Acceptance Test for the User Stories
     As a user...
     _ - I want to view a list of all available meetups
     X - I want to view the details of a meetup
-    X - I want to create a meetup
+    _ - I want to create a meetup
     _ - I want to see who has already joined a meetup
     _ - I want to join a meetup
   -------------OPTIONAL------------- to be created later
@@ -57,7 +57,7 @@ _ - Write code to pass tests
     As a user...
     _ - I want to view a list of all available meetups
     X - I want to view the details of a meetup
-    X - I want to create a meetup
+    _ - I want to create a meetup
     _ - I want to see who has already joined a meetup
     _ - I want to join a meetup
   -------------OPTIONAL------------- to be created later

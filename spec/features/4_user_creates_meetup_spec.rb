@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature "user creates a meetup" do
+feature "User creates a meetup" do
   # As a user
   # I want to create a meetup
   # So that I can gather a group of people to do an activity
@@ -26,7 +26,7 @@ feature "user creates a meetup" do
 
 # direct to the meetup show page.
     expect(page).not_to have_current_path("/meetups")
-
+    expect(page).to have_current_path("/meetups/:id")
     expect(page).to have_content(meetup[:name])
     expect(page).to have_content(meetup[:location])
     expect(page).to have_content(meetup[:description])
