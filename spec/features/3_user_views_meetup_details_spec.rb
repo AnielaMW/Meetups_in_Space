@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature "user views details of a meetup" do
+feature "User views details of a meetup" do
   # As a user...
   # I want to view the details of a meetup
   # So that I can learn more about its purpose

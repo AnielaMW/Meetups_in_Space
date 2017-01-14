@@ -1,7 +1,7 @@
 require "spec_helper"
 require 'pry'
 
-feature "user views a list of attendees for a meetup" do
+feature "User views a list of attendees for a meetup" do
   # As a user...
   # I want to see who has already joined a meetup
   # So that I can see if any of my friends have joined
