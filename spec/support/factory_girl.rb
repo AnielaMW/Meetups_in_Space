@@ -21,5 +21,4 @@ FactoryGirl.define do
       location "Auditorium Theatre"
     end
   end
-
 end

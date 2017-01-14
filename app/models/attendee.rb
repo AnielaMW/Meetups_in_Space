@@ -1,4 +1,4 @@
-class Meetup < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :meetup
+class Attendee < ActiveRecord::Base
+  has_many :users
+  has_many :meetups
 end

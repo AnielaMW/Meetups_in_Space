@@ -1,5 +1,5 @@
 X - Complete setup
-      * session secret is birthday(MMDDYYYY) followed by usual pincode(XXXX)
+    * session secret is birthday(MMDDYYYY) followed by usual pincode(XXXX)
 X - Read User Stories
       * As a user
         I want to view a list of all available meetups
@@ -41,8 +41,8 @@ X - Read User Stories
       * As a comment creator
         I want to erase a comment
         So that I remove any comments that no longer apply
-_ - Review given code
-_ - Understand User Authentication code
+X - Review given code
+X - Understand User Authentication code
 X - Prepare Schema
   X - plan tables
       * users
@@ -68,4 +68,4 @@ X - Create Migrations to the database
   X - create migration
   X - write migration
   X - migrate - rollback - migrate
-_ - Review work and refactor as needed
+X - Review work and refactor as needed
