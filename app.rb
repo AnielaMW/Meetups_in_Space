@@ -1,5 +1,6 @@
 require 'sinatra'
 require_relative 'config/application'
+require 'pry'
 
 set :bind, '0.0.0.0'  # bind to all interfaces
 
@@ -62,17 +63,17 @@ post '/meetups/create_new' do
   end
 end
 
-post '/meetups/:id/join' do
+post '/meetups/join' do
   if current_user
-    @user_id = :current_user.id
-    @meetup_id = params[:id]
+    @user_id = current_user.id
+    @meetup_id = params[:id].to_i
 
     @attendee = Attendee.new(user_id: @user_id, meetup_id: @meetup_id)
 
     @attendee.save
 
-    flash[:notice] = "You have joined this Meetup."
-    redirect '/meetups/@meetup_id'
+    flash[:notice] = "You have joined the Meetup."
+    redirect '/meetups'
   else
     flash[:notice] = "You need to sign-in to join this Meetup."
     redirect '/'

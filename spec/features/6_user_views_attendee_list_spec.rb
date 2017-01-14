@@ -1,4 +1,5 @@
 require "spec_helper"
+require 'pry'
 
 feature "user views a list of attendees for a meetup" do
   # As a user...
@@ -9,5 +10,20 @@ feature "user views a list of attendees for a meetup" do
   # * On a meetup's show page, I should see a list of the members that have joined the meetup.
   # * I should see each member's avatar and username.
 
-  pending "successfully view a list of attendees for a meetup"
+  scenario "successfully view a list of attendees for a meetup" do
+    user1 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user)
+    meetup = FactoryGirl.create(:meetup)
+
+    visit "/meetups"
+    sign_in_as user1
+    click_link "#{meetup.name}"
+    click_on "Join Meetup"
+    click_link "Sign Out"
+    sign_in_as user2
+    click_link "#{meetup.name}"
+
+    expect(page).to have_content(user1.username)
+    expect(page).to have_content(user1.avatar)
+  end
 end

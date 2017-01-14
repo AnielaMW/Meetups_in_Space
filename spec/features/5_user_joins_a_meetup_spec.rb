@@ -12,25 +12,27 @@ feature "user joins a meetup" do
 
   scenario "successfully join a meetup" do
     user = FactoryGirl.create(:user)
-    FactoryGirl.create(:meetup)
-    FactoryGirl.create(:meetup1)
+    meetup = FactoryGirl.create(:meetup)
 
     visit "/meetups"
-    click_link "Tap Dance Recital"
+    sign_in_as user
+    click_link "#{meetup.name}"
     click_on "Join Meetup"
 
-    # expect(@attendee).to be_an('object')
-    expect(page).to have_content("You have joined this Meetup.")
+    # need to rewrite to test to be directed to the meetup show page to see username add to list along with the message that I have been added to the list.
+
+    expect(page).to have_content("You have joined the Meetup.")
   end
 
   scenario "fail to join meetup if not signed in" do
-    FactoryGirl.create(:meetup)
-    FactoryGirl.create(:meetup1)
+    meetup = FactoryGirl.create(:meetup)
 
     visit "/meetups"
-    click_link "Tap Dance Recital"
+    click_link "#{meetup.name}"
     click_on "Join Meetup"
 
     expect(page).to have_content("You need to sign-in to join this Meetup.")
   end
+
+  pending "fail to see join button if signed in and already and attendee."
 end

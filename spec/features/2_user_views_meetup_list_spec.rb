@@ -10,13 +10,13 @@ feature "user views list of meetups" do
   # * Meetups should be listed alphabetically.
 
   scenario "successfully view alphabetized list of meetups" do
-    FactoryGirl.create(:meetup)
-    FactoryGirl.create(:meetup1)
+    meetup1 = FactoryGirl.create(:meetup)
+    meetup2 = FactoryGirl.create(:meetup1)
 
     visit "/meetups"
 
-    expect(page).to have_content("RBTO Amature Auditions")
-    expect(page).to have_content("Tap Dance Recital")
+    expect(page).to have_content(meetup1.name)
+    expect(page).to have_content(meetup2.name)
     # still need to test for order ???????????????????????
   end
 end

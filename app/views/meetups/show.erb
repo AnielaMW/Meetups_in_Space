@@ -1,9 +1,9 @@
 <h1><%= @meetup.name %></h1>
 <h2>At <%= @meetup.location %></h2>
 <p><%= @meetup.description %></p>
-<h6><%= @meetup.user.username %></h6>
+<h6>Created by <%= @meetup.user.username %></h6>
 
-<form action="/meetups/<%= @meetup.id %>/join" method="post">
+<form action="/meetups/join" method="post">
   <div>
     <input type="submit" value="Join Meetup">
   </div>
