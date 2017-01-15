@@ -1,71 +1,75 @@
 X - Complete setup
-    * session secret is birthday(MMDDYYYY) followed by usual pincode(XXXX)
+  * session secret is birthday(MMDDYYYY) followed by usual pincode(XXXX)
 X - Read User Stories
-      * As a user
-        I want to view a list of all available meetups
-        So that I can get together with people with similar interests
-      * As a user
-        I want to view the details of a meetup
-        So that I can learn more about its purpose
-      * As a user
-        I want to create a meetup
-        So that I can gather a group of people to do an activity
-      * As a user
-        I want to see who has already joined a meetup
-        So that I can see if any of my friends have joined
-      * As a user
-        I want to join a meetup
-        So that I can partake in this meetup
-    -------------OPTIONAL------------- to be created later
-      * As a meetup creator
-        I want to change my meetup's details
-        So the meetup has up-to-date details
-      * As a meetup creator
-        I want to cancel my meetup
-        So nobody comes to a meetup that is not taking place
-      * As a meetup member
-        I want to leave a meetup
-        So that I'm no longer listed as a member of the meetup
-      * As a user
-        I want to join a meetup without a page reload
-        So that I can have a seamless experience when joining a meetup
-      * As a user
-        I want to leave a meetup without a page reload
-        So that I can have a seamless experience when leaving a meetup
-      * As a user
-        I want to see comments about a meetup
-        So I can see what other users are saying about the meetup
-      * As a meetup member
-        I want to leave comments on a meetup
-        So that I can communicate with other members of the group about the meetup
-      * As a comment creator
-        I want to erase a comment
-        So that I remove any comments that no longer apply
+  * As a user
+    I want to view a list of all available meetups
+    So that I can get together with people with similar interests
+  * As a user
+    I want to view the details of a meetup
+    So that I can learn more about its purpose
+  * As a user
+    I want to create a meetup
+    So that I can gather a group of people to do an activity
+  * As a user
+    I want to see who has already joined a meetup
+    So that I can see if any of my friends have joined
+  * As a user
+    I want to join a meetup
+    So that I can partake in this meetup
+  -------------OPTIONAL------------- to be created later
+  * As a meetup creator
+    I want to change my meetup's details
+    So the meetup has up-to-date details
+  * As a meetup creator
+    I want to cancel my meetup
+    So nobody comes to a meetup that is not taking place
+  * As a meetup member
+    I want to leave a meetup
+    So that I'm no longer listed as a member of the meetup
+  * As a user
+    I want to join a meetup without a page reload
+    So that I can have a seamless experience when joining a meetup
+  * As a user
+    I want to leave a meetup without a page reload
+    So that I can have a seamless experience when leaving a meetup
+  * As a user
+    I want to see comments about a meetup
+    So I can see what other users are saying about the meetup
+  * As a meetup member
+    I want to leave comments on a meetup
+    So that I can communicate with other members of the group about the meetup
+  * As a comment creator
+    I want to erase a comment
+    So that I remove any comments that no longer apply
 X - Review given code
 X - Understand User Authentication code
 X - Prepare Schema
   X - plan tables
-      * users
-      * meetups
-      * attendees(join table between meetups and users)
-    -------------OPTIONAL------------- to be created later
-      * comments
-      * users-meetups-comments(join table between meetups, users, and comments)
+    * users
+    * meetups
+    * attendees(join table between meetups and users)
+  _ - ------------OPTIONAL------------ to be created later
+    * comments
+    * users-meetups-comments(join table between meetups, users, and comments)
   X - plan columns
-      * name(m)
-      * description(m)
-      * location(m)
-      * creator(m join via user_id)
-      * meetup_id(a)
-      * user_id(a)
-    -------------OPTIONAL------------- to be created later
-      * comment(c)
-      * comment_id(umc)
-      * meetup_id(umc)
-      * user_id(umc)
+    * name(m)
+    * description(m)
+    * location(m)
+    * creator(m join via user_id)
+    * meetup_id(a)
+    * user_id(a)
+  _ - ------------OPTIONAL------------ to be created later
+    * comment(c)
+    * comment_id(umc)
+    * meetup_id(umc)
+    * user_id(umc)
   X - draw ER diagram
 X - Create Migrations to the database
   X - create migration
   X - write migration
   X - migrate - rollback - migrate
+  _ - ------------OPTIONAL------------ to be created later
+    _ - create optional migrations
+    _ - write optional migrations
+    _ - migrate - rollback - migrate
 X - Review work and refactor as needed
