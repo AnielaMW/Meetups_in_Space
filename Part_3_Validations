@@ -1,0 +1,10 @@
+X - Update Database to include validations
+X - Update Models to include validations
+  X - User
+  X - Meetup
+  X - Attendee
+  _ - ------------OPTIONAL------------ to be created later
+    _ - Comment
+    _ - users-meetups-comments join
+_ - Complete Core User Stories (See Parts 1 and 2)
+_ - Complete Optional User Stories (See Parts 1 and 2)
