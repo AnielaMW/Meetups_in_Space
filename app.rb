@@ -22,14 +22,12 @@ get '/auth/github/callback' do
   user = User.find_or_create_from_omniauth(env['omniauth.auth'])
   session[:user_id] = user.id
   flash[:notice] = "You're now signed in as #{user.username}!"
-
   redirect '/'
 end
 
 get '/sign_out' do
   session[:user_id] = nil
   flash[:notice] = "You have been signed out."
-
   redirect '/'
 end
 
@@ -41,7 +39,6 @@ end
 get '/meetups/create_new' do
   if current_user
     @new_meetup = Meetup.new({name: params[:name], location: params[:location], description: params[:description], user_id: current_user.id})
-    @user_id = current_user.id
     @errors = @new_meetup.errors.full_messages
     erb :'meetups/create'
   else
@@ -51,13 +48,11 @@ get '/meetups/create_new' do
 end
 
 post '/meetups/create_new' do
-  @new_meetup = Meetup.new(name: params[:name], location: params[:location], description: params[:description], user_id: current_user.id)
+  @new_meetup = Meetup.new(name: params[:name], location: params[:location], description: params[:description], user_id: current_user.id.to_i)
   @errors = @new_meetup.errors.full_messages
-  @user_id = current_user.id
-
   if @new_meetup.save
-    redirect '/meetups'
-    # how do I call params[:id] to redirect the user to the meetup show page once a meetup has been created.
+    meetup = Meetup.where("name = ? AND location = ? AND description = ?", params[:name], params[:location], params[:description]).first
+    redirect '/meetups/' + meetup.id.to_s
   else
     @errors = @new_meetup.errors.full_messages
     erb :'meetups/create'
@@ -66,15 +61,12 @@ end
 
 post '/meetups/join' do
   if current_user
-    @user_id = current_user.id
-    @meetup_id = params[:id].to_i
-
-    @attendee = Attendee.new(user_id: @user_id, meetup_id: @meetup_id)
-
-    @attendee.save
-
+    user_id = current_user.id
+    meetup_id = params[:joinMeetup].to_i
+    attendee = Attendee.new(user_id: user_id, meetup_id: meetup_id)
+    attendee.save
     flash[:notice] = "You have joined the Meetup."
-    redirect '/meetups'
+    redirect '/meetups/' + meetup_id.to_s
   else
     flash[:notice] = "You need to sign-in to join this Meetup."
     redirect '/'
@@ -82,7 +74,11 @@ post '/meetups/join' do
 end
 
 get '/meetups/:id' do
-  id = params[:id]
-  @meetup = Meetup.find(id)
+  @meetup = Meetup.find(params[:id])
+  @attendees = []
+  Attendee.where("meetup_id = ?", params[:id]).each do |user|
+    add_user = User.find(user.user_id)
+    @attendees << add_user
+  end
   erb :'meetups/show'
 end

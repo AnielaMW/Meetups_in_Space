@@ -26,7 +26,8 @@ feature "User creates a meetup" do
 
 # direct to the meetup show page.
     expect(page).not_to have_current_path("/meetups")
-    expect(page).to have_current_path("/meetups/:id")
+    expect(page).to have_current_path("/meetups/4")
+    # How do I write the above test without hard codeing the path id: 4?
     expect(page).to have_content(meetup[:name])
     expect(page).to have_content(meetup[:location])
     expect(page).to have_content(meetup[:description])

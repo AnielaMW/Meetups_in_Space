@@ -19,9 +19,9 @@ feature "User joins a meetup" do
     click_link "#{meetup.name}"
     click_on "Join Meetup"
 
-    # need to rewrite to test to be directed to the meetup show page to see username add to list along with the message that I have been added to the list.
     expect(page).to have_current_path("/meetups/#{meetup.id}")
     expect(page).to have_content("You have joined the Meetup.")
+    expect(page).to have_content(user.username)
   end
 
   scenario "fail to join meetup if not signed in" do
