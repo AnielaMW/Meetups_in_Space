@@ -13,6 +13,7 @@ feature "User views a list of attendees for a meetup" do
   scenario "successfully view a list of attendees for a meetup" do
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
+    user3 = FactoryGirl.create(:user)
     meetup = FactoryGirl.create(:meetup)
 
     visit "/meetups"
@@ -22,8 +23,13 @@ feature "User views a list of attendees for a meetup" do
     click_link "Sign Out"
     sign_in_as user2
     click_link "#{meetup.name}"
+    click_on "Join Meetup"
+    click_link "Sign Out"
+    sign_in_as user3
+    click_link "#{meetup.name}"
 
     expect(page).to have_content(user1.username)
-    expect(page).to have_content(user1.avatar)
+    # How do I test for avatars?
+    expect(page).to have_content(user2.username)
   end
 end
