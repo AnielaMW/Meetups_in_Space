@@ -22,24 +22,23 @@ X - Create Pending Acceptance Test for the User Stories
     X - I want to join a meetup
   _ - ------------OPTIONAL------------ to be created later
   As a meetup creator...
-    _ - I want to change my meetup's details
-    _ - I want to cancel my meetup
-    _ - I want to leave a meetup
+    X - I want to change my meetup's details
+    X - I want to cancel my meetup
   As a user...
-    _ - I want to join a meetup without a page reload
-    _ - I want to leave a meetup without a page reload
-    _ - I want to see comments about a meetup
+    X - I want to join a meetup without a page reload
+    X - I want to leave a meetup without a page reload
+    X - I want to see comments about a meetup
   As a meetup member...
-    _ - I want to leave comments on a meetup
+    X - I want to leave comments on a meetup
   As a comment creator...
-    _ - I want to erase a comment
+    X - I want to erase a comment
 _ - Write Full Acceptance Test for the User Stories
   * Using rspec
   As a user...
     _ - I want to view a list of all available meetups
     X - I want to view the details of a meetup
     _ - I want to create a meetup
-    _ - I want to see who has already joined a meetup
+    X - I want to see who has already joined a meetup
     _ - I want to join a meetup
   _ - ------------OPTIONAL------------ to be created later
   As a meetup creator...
@@ -62,7 +61,7 @@ _ - Write code to pass tests
     _ - I want to view a list of all available meetups
     X - I want to view the details of a meetup
     _ - I want to create a meetup
-    _ - I want to see who has already joined a meetup
+    X - I want to see who has already joined a meetup
     _ - I want to join a meetup
   _ - ------------OPTIONAL------------ to be created later
   As a meetup creator...
