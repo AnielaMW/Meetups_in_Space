@@ -39,7 +39,6 @@ end
 get '/meetups/create_new' do
   if current_user
     @new_meetup = Meetup.new({name: params[:name], location: params[:location], description: params[:description], user_id: current_user.id})
-    @errors = @new_meetup.errors.full_messages
     erb :'meetups/create'
   else
     flash[:notice] = "You need to sign-in to create a new Meetup."
@@ -51,8 +50,7 @@ post '/meetups/create_new' do
   @new_meetup = Meetup.new(name: params[:name], location: params[:location], description: params[:description], user_id: current_user.id.to_i)
   @errors = @new_meetup.errors.full_messages
   if @new_meetup.save
-    meetup = Meetup.where("name = ? AND location = ? AND description = ?", params[:name], params[:location], params[:description]).first
-    redirect '/meetups/' + meetup.id.to_s
+    redirect '/meetups/' + Meetup.where("name = ? AND description = ?", @new_meetup.name, @new_meetup.description).first.id.to_s
   else
     @errors = @new_meetup.errors.full_messages
     erb :'meetups/create'
@@ -62,11 +60,11 @@ end
 post '/meetups/join' do
   if current_user
     user_id = current_user.id
-    meetup_id = params[:joinMeetup].to_i
+    meetup_id = params[:joinMeetup]
     attendee = Attendee.new(user_id: user_id, meetup_id: meetup_id)
     attendee.save
     flash[:notice] = "You have joined the Meetup."
-    redirect '/meetups/' + meetup_id.to_s
+    redirect '/meetups/' + meetup_id
   else
     flash[:notice] = "You need to sign-in to join this Meetup."
     redirect '/'
@@ -75,6 +73,11 @@ end
 
 get '/meetups/:id' do
   @meetup = Meetup.find(params[:id])
+  if current_user
+    @current_user_attending = Attendee.where("meetup_id = ? AND user_id = ?", params[:id], current_user.id).first
+  else
+    @current_user_attending = nil
+  end
   @attendees = []
   Attendee.where("meetup_id = ?", params[:id]).each do |user|
     add_user = User.find(user.user_id)

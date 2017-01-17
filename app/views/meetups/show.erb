@@ -3,11 +3,13 @@
 <p><%= @meetup.description %></p>
 <h6>Created by <%= @meetup.user.username %></h6>
 
-<form action="/meetups/join" method="post">
-  <div>
-    <button type="submit" value="<%= @meetup.id %>" name="joinMeetup">Join Meetup</button>
-  </div>
-</form>
+<% if @current_user_attending.nil? %>
+  <form action="/meetups/join" method="post">
+    <div>
+      <button type="submit" value="<%= @meetup.id %>" name="joinMeetup">Join Meetup</button>
+    </div>
+  </form>
+<% end %>
 
 <ul>
   <% @attendees.each do |user| %>
