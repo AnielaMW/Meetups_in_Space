@@ -20,7 +20,7 @@ X - Create Pending Acceptance Test for the User Stories
     X - I want to create a meetup
     X - I want to see who has already joined a meetup
     X - I want to join a meetup
-  _ - ------------OPTIONAL------------ to be created later
+  X - ------------OPTIONAL------------ to be created later
   As a meetup creator...
     X - I want to change my meetup's details
     X - I want to cancel my meetup
@@ -35,11 +35,11 @@ X - Create Pending Acceptance Test for the User Stories
 _ - Write Full Acceptance Test for the User Stories
   * Using rspec
   As a user...
-    _ - I want to view a list of all available meetups
+    X - I want to view a list of all available meetups
     X - I want to view the details of a meetup
-    _ - I want to create a meetup
+    X - I want to create a meetup
     X - I want to see who has already joined a meetup
-    _ - I want to join a meetup
+    X - I want to join a meetup
   _ - ------------OPTIONAL------------ to be created later
   As a meetup creator...
     _ - I want to change my meetup's details
@@ -58,11 +58,11 @@ _ - Write code to pass tests
   * app.rb AR query
   * app/views/ to create user sites
   As a user...
-    _ - I want to view a list of all available meetups
+    X - I want to view a list of all available meetups
     X - I want to view the details of a meetup
-    _ - I want to create a meetup
+    X - I want to create a meetup
     X - I want to see who has already joined a meetup
-    _ - I want to join a meetup
+    X - I want to join a meetup
   _ - ------------OPTIONAL------------ to be created later
   As a meetup creator...
     _ - I want to change my meetup's details

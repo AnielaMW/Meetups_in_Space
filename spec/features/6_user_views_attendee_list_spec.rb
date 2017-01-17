@@ -28,7 +28,7 @@ feature "User views a list of attendees for a meetup" do
     click_link "#{meetup.name}"
 
     expect(page).to have_content(user1.username)
-    # How do I test for avatars????????????????
+    expect(page).to have_css(".url-#{user1.id}")
     expect(page).to have_content(user2.username)
   end
 end

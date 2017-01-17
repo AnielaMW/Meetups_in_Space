@@ -13,6 +13,6 @@
 
 <ul>
   <% @attendees.each do |user| %>
-    <li><img src="<%= user.avatar_url %>" alt="<%= user.username %>s avatar"><%= user.username %></li>
+    <li><img class="url-<%= user.id %>" src="<%= user.avatar_url %>" alt="<%= user.username %>s avatar"><%= user.username %></li>
   <% end %>
 </ul>

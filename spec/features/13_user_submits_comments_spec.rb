@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature "User submits meetup comments" do
+feature "Meetup Member submits meetup comments" do
   # As a meetup member...
   # I want to leave comments on a meetup
   # So that I can communicate with other members of the group about the meetup
