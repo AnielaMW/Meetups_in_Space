@@ -30,5 +30,6 @@ feature "User views a list of attendees for a meetup" do
     expect(page).to have_content(user1.username)
     expect(page).to have_css(".url-#{user1.id}")
     expect(page).to have_content(user2.username)
+    expect(page).to have_css(".url-#{user2.id}")
   end
 end
