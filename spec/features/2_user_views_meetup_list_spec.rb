@@ -15,8 +15,9 @@ feature "User views list of meetups" do
 
     visit "/meetups"
 
-    expect(page).to have_content(meetup1.name)
-    expect(page).to have_content(meetup2.name)
-    # still need to test for order ??????????
+    meetups = page.all("div#meetuplist ul li")
+    expect(meetups[0]).to have_content(meetup2.name)
+    expect(meetups[1]).to have_content(meetup1.name)
+    # still need to test for order ???????????
   end
 end

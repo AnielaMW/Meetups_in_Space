@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature "User deletes meetup comments" do
+feature "Comment Creator deletes meetup comments" do
   # As a comment creator...
   # I want to erase a comment
   # So that I remove any comments that no longer apply
