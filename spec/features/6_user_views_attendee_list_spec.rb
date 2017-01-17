@@ -1,5 +1,4 @@
 require "spec_helper"
-require 'pry'
 
 feature "User views a list of attendees for a meetup" do
   # As a user...
