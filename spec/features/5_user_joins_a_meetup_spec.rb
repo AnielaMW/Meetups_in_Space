@@ -22,6 +22,7 @@ feature "User joins a meetup" do
     expect(page).to have_current_path("/meetups/#{meetup.id}")
     expect(page).to have_content("You have joined the Meetup.")
     expect(page).to have_content(user.username)
+    expect(page).not_to have_content("Join Meetup")
   end
 
   scenario "fail to join meetup if not signed in" do
@@ -33,6 +34,4 @@ feature "User joins a meetup" do
 
     expect(page).to have_content("You need to sign-in to join this Meetup.")
   end
-
-  pending "fail to see join button if signed in and already an attendee."
 end
